@@ -3,7 +3,7 @@
 	"name": "Status Bar Clock",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Status bar clock plugin for Obsidian.",
+	"description": "Status bar clock.",
 	"author": "Marty Ballard",
 	"authorUrl": "https://pillar-soft.com",
 	"fundingUrl": "https://buymeacoffee.com/marty331",
