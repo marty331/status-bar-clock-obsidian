@@ -7,7 +7,6 @@ interface StatusBarClockSettings {
 
 const DEFAULT_SETTINGS: StatusBarClockSettings = {
 	showSeconds: true,
-	showClock: true,
 }
 
 export default class StatusBarClockPlugin extends Plugin {
@@ -31,10 +30,12 @@ export default class StatusBarClockPlugin extends Plugin {
 		// This adds a clock to the status bar. Does not work on mobile apps.
 		const statusBarItemEl = this.addStatusBarItem();
 
-		setInterval(() => {
-			this.updateTime();
-			statusBarItemEl.setText(`Time: ${this.rightNow}`);
-		}, 1000)
+		this.registerInterval(
+			window.setInterval(() => {
+				this.updateTime();
+				statusBarItemEl.setText(`Time: ${this.rightNow}`);
+			}, 1000)
+		);
 		
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
@@ -73,10 +74,8 @@ class StatusBarClockSettingsTab extends PluginSettingTab {
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.showSeconds === true)
 				.onChange(async (value) => {
-					console.log('Setting changed to: ' + value);
 					this.plugin.settings.showSeconds = value ? true : false;
 					await this.plugin.saveSettings();
-					console.log(`Show seconds is now: ${this.plugin.settings.showSeconds}`);
 				}));
 		
 	}
