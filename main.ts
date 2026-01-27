@@ -2,7 +2,6 @@ import { App, Plugin, PluginSettingTab, Setting } from 'obsidian';
 
 interface StatusBarClockSettings {
 	showSeconds: boolean;
-	showClock: boolean;
 }
 
 const DEFAULT_SETTINGS: StatusBarClockSettings = {
