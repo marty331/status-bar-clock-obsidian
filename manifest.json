@@ -1,7 +1,7 @@
 {
 	"id": "status-bar-clock",
 	"name": "Status Bar Clock",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"minAppVersion": "0.15.0",
 	"description": "Status bar clock.",
 	"author": "Marty Ballard",
